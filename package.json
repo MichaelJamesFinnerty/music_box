@@ -1,0 +1,5 @@
+{
+  "dependencies":
+    {  "tone" : "0.12.80"
+    }
+}
