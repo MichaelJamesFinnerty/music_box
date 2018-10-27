@@ -60,17 +60,17 @@ MusicBoxManager.prototype.playSound = function(trigger) {
 
 MusicBoxManager.prototype.checkNoteInNoteGrid = function (){
     //set counters to zero
-    var noteGridCounter = 0;
+    this.noteGridCounter = 0;
     console.log(this.seqrManager.note_grid);
     //look through note grid to determine if the note already exists
     for (n of this.seqrManager.note_grid) {
         //console.log(note_grid[i]);
-        if (JSON.stringify(this.seqrManager.note_grid[noteGridCounter]) == JSON.stringify([this.gx, this.gy])){
+        if (JSON.stringify(this.seqrManager.note_grid[this.noteGridCounter]) == JSON.stringify([this.gx, this.gy])){
             break;
         }
-        noteGridCounter++;
+        this.noteGridCounter++;
     };
-    return (noteGridCounter==this.seqrManager.note_grid.length ? true : false);
+    return (this.noteGridCounter==this.seqrManager.note_grid.length ? true : false);
 };
 
 MusicBoxManager.prototype.addNoteToNoteGrid = function (){
@@ -78,7 +78,7 @@ MusicBoxManager.prototype.addNoteToNoteGrid = function (){
 };
 
 MusicBoxManager.prototype.removeNoteFromNoteGrid = function (){
-        this.seqrManager.noteGrid.splice(this.noteGridCounter, 1);
+        this.seqrManager.note_grid.splice(this.noteGridCounter, 1);
 };
 
 MusicBoxManager.prototype.click = function (event){
